@@ -24,5 +24,23 @@
 				<arguments>1.0-name-matches-false-false-node_modules</arguments>
 			</matcher>
 		</filter>
+		<filter>
+			<id>1527995040216</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-node_modules</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1528075875522</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-node_modules</arguments>
+			</matcher>
+		</filter>
 	</filteredResources>
 </projectDescription>

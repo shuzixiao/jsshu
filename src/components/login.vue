@@ -96,7 +96,7 @@
 							localStorage.setItem("yycrefreshtoken", data.data.refresh_token);
 							localStorage.setItem("acphone", data.data.phone);
 							that.$router.push({
-								path: './index'
+								path: './'
 							});
 							return;
 						} else {
