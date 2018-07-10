@@ -1,56 +1,64 @@
 <template>
 	<div id="app">
-		<header class="header2">
+		<!--<header class="header2">
 			<label class="pagereturn" @click="pagereturn"><返回</label>
 			<label>我的车辆</label>
-		</header>
+		</header>-->
+		<mt-header title="我的车库">
+			<router-link to="/" slot="left">
+				<mt-button icon="back">返回</mt-button>
+			</router-link>
+		</mt-header>
 		<section class="section2">
 			<div id="carcontent">
 				<div id="nocar" v-show="nocarshow" v-cloak>
-					<img src="img/car_img_default@2x.png" /><br /><br />
+					<img src="../assets/img/car_img_default@2x.png" /><br /><br />
 					<label>您还没有添加车辆哦~</label>
 				</div>
 				<div id="ycar" v-show="ycarshow" v-cloak v-for="item in carlist">
 					<div class="ycarcontent">
 						<div class="ycarcontenttop">
-							<img src="../assets/img_no_car@2x.png" class="ycarcontentimg" />
+							<img src="../assets/img/img_no_car@2x.png" class="ycarcontentimg" />
 							<label class="ycarcontentlabel1">{{item.plateNo}}</label>
 							<label class="ycarcontentlabel2">{{item.vehicleType}}</label>
-							<button type="button" v-show="lookcar" class="ycarcontentbutton">查看车辆</button>
+							<button type="button" v-show="lookcar" @click="ckcar(item)" class="ycarcontentbutton">查看车辆</button>
 							<button type="button" v-show="djnj" class="ycarcontentbutton">点击年检</button>
 						</div>
 						<div class="ycarcontentbottom">
 							<div v-if="item.nextValidateDay>90">
-								<img src="../assets/img_time@2x.png" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;年检有效期还剩<label class="ycarcontentlabel3">&nbsp;&nbsp;{{item.nextValidateDay}}&nbsp;&nbsp;</label>天
+								<img src="../assets/img/img_time@2x.png" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;年检有效期还剩<label class="ycarcontentlabel3">&nbsp;&nbsp;{{item.nextValidateDay}}&nbsp;&nbsp;</label>天
 							</div>
 							<div v-if="item.nextValidateDay<=90">
-								<img src="../assets/img_time@2x.png" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;年检有效期还剩<label class="ycarcontentlabel4">&nbsp;&nbsp;{{item.nextValidateDay}}&nbsp;&nbsp;</label>天
+								<img src="../assets/img/img_time@2x.png" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;年检有效期还剩<label class="ycarcontentlabel4">&nbsp;&nbsp;{{item.nextValidateDay}}&nbsp;&nbsp;</label>天
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="carbutton">
+				<router-link to="/addcar">
 				<button type="button" class="addcar">添加车辆</button>
+				</router-link>
 			</div>
 		</section>
 	</div>
 </template>
 <script>
-	import { serveraddress, yyctoken, yycrefreshtoken, lstoken, lsrefreshtoken, acphone, guid } from '../util/public'
-	//	console.log(yyctoken);
+	import { serveraddress } from '../util/public'
 	export default {
-		name: 'mygarage',
 		data() {
 			return {
 				carlist: [],
 				nocarshow: false,
 				ycarshow: false,
 				lookcar: false,
-				djnj: false
+				djnj: false,
+				yyctoken: ''
 			}
 		},
-		created() {
+		created() {},
+		mounted() {
+			this.yyctoken = localStorage.getItem("yyctoken");
 			this.cardata();
 			this.buttonshow();
 		},
@@ -62,13 +70,19 @@
 					url: "" + serveraddress + "/api/v1/car/info/list",
 					headers: {
 						'client': 'CLIENT',
-						'Authorization': 'Bearer ' + yyctoken
+						'Authorization': 'Bearer ' + that.yyctoken
 					},
 					success: function(data) {
 						if(data.code == 200) {
-							that.ycarshow = true
-							that.carlist = data.data;
-							$("#carbutton").css("margin-top", "50px");
+							if(data.data.length == 0) {
+								that.nocarshow = true
+								that.carlist = [];
+								$("#carbutton").css("margin-top", "280px");
+							} else {
+								that.ycarshow = true
+								that.carlist = data.data;
+								$("#carbutton").css("margin-top", "50px");
+							}
 						} else {
 							that.nocarshow = true
 							alert(data.message);
@@ -89,17 +103,16 @@
 					}
 				})
 			},
+			ckcar(item)
+			{
+				this.$router.push({path:'./carinfo',query: {id: item.id}})
+			},
 			buttonshow() {
 				if(this.$route.query.id == 1) {
 					this.lookcar = true;
 				} else {
 					this.djnj = true;
 				}
-			},
-			pagereturn() {
-				this.$router.push({
-					path: './'
-				});
 			}
 		}
 	}
@@ -114,23 +127,6 @@
 	body {
 		background: #F0F0F0;
 	}
-	
-	.header2 {
-		width: 100%;
-		height: 70px;
-		background: #FF923C;
-		text-align: center;
-		line-height: 70px;
-		color: #FFFFFF;
-		font-size: 22px;
-		position: relative;
-	}
-	
-	.pagereturn {
-		position: absolute;
-		left: 10px;
-	}
-	
 	.section2 {
 		width: 100%;
 		margin: 0 auto;

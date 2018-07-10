@@ -1,0 +1,23 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+
+body {
+	background: #F7F7FA;
+}
+
+.mint-header {
+	background-color: #FF923C;
+	font-size: 27px;
+	height: 80px;
+}
+
+.mintui {
+	font-size: 32px;
+}
+
+.mint-toast-text {
+	font-size: 25px;
+}

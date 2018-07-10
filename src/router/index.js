@@ -3,10 +3,11 @@ import Router from 'vue-router'
 import login from '@/components/login'
 import index from '@/components/index'
 import mygarage from '@/components/mygarage'
-import { serveraddress, yyctoken, yycrefreshtoken } from '../util/public'
+import addcar from '@/components/addcar'
+import carinfo from '@/components/carinfo'
 Vue.use(Router)
 const router = new Router({
-	//	 mode: 'history',
+//	mode: 'history',
 	routes: [{
 			path: '/',
 			name: 'index',
@@ -15,14 +16,6 @@ const router = new Router({
 				title: '强生易验车'
 			}
 		},
-		//		{
-		//			path: '/index',
-		//			name: 'index',
-		//			component: index,
-		//			meta: {
-		//				title: '强生易验车'
-		//			}
-		//		},
 		{
 			path: '/login',
 			name: 'login',
@@ -39,6 +32,19 @@ const router = new Router({
 				title: '我的车库'
 			}
 		},
+		{
+			path: '/addcar',
+			name: 'addcar',
+			component: addcar,
+			meta: {
+				title: '上传车辆信息'
+			}
+		},
+		{
+			path: '/carinfo',
+			name: 'carinfo',
+			component: carinfo
+		}
 	]
 })
 router.beforeEach((to, from, next) => {

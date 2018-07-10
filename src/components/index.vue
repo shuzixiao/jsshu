@@ -1,25 +1,25 @@
 <template>
 	<div id="app">
 		<header class="header1">
-			<label class="headerservice">客服</label><img src="../assets/home_logoside@2x.png" /><label class="headershare">分享</label>
+			<label class="headerservice">客服</label><img src="../assets/img/home_logoside@2x.png" /><label class="headershare">分享</label>
 		</header>
 		<section class="section1">
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a href="clientsanjiujiu.html"><img src="../assets/banner01@3x.jpg" /></a>
+						<a href="clientsanjiujiu.html"><img src="../assets/img/banner01@3x.jpg" /></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="javascript:void(0)"><img src="../assets/banner02@3x.jpg" /></a>
+						<a href="javascript:void(0)"><img src="../assets/img/banner02@3x.jpg" /></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="javascript:void(0)"><img src="../assets/banner03@3x.jpg" /></a>
+						<a href="javascript:void(0)"><img src="../assets/img/banner03@3x.jpg" /></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="clientnopay.html"><img src="../assets/banner04@3x.jpg" /></a>
+						<a href="clientnopay.html"><img src="../assets/img/banner04@3x.jpg" /></a>
 					</div>
 					<div class="swiper-slide">
-						<a href="javascript:void(0)"><img src="../assets/banner08@3x.jpg" /></a>
+						<a href="javascript:void(0)"><img src="../assets/img/banner08@3x.jpg" /></a>
 					</div>
 				</div>
 				<!-- Add Pagination -->
@@ -27,40 +27,40 @@
 			</div>
 			<div id="contenticon">
 				<dl class="iconstyle" @click="ajyc">
-					<dt><img src="../assets/home_icon1@2x.png" /></dt>
+					<dt><img src="../assets/img/home_icon1@2x.png" /></dt>
 					<dd>安检验车</dd>
 				</dl>
 				<dl class="iconstyle" @click="nsgj">
-					<dt><img src="../assets/home_icon2@2x.png" /></dt>
+					<dt><img src="../assets/img/home_icon2@2x.png" /></dt>
 					<dd>年审盖章</dd>
 				</dl>
 				<dl class="iconstyle" @click="wzcx">
-					<dt><img src="../assets/home_icon3@2x.png" /></dt>
+					<dt><img src="../assets/img/home_icon3@2x.png" /></dt>
 					<dd>违章查询</dd>
 				</dl>
 				<dl class="iconstyle" @click="clwz">
-					<dt><img src="../assets/home_icon4@2x.png" /></dt>
+					<dt><img src="../assets/img/home_icon4@2x.png" /></dt>
 					<dd>处理违章</dd>
 				</dl>
 				<dl class="iconstyle">
-					<dt><img src="../assets/home_icon5@2x.png" /></dt>
+					<dt><img src="../assets/img/home_icon5@2x.png" /></dt>
 					<dd>车辆报价</dd>
 				</dl>
 				<dl class="iconstyle" @click="kfjf">
-					<dt><img src="../assets/home_icon6@2x.png" /></dt>
+					<dt><img src="../assets/img/home_icon6@2x.png" /></dt>
 					<dd>扣分缴费</dd>
 				</dl>
 				<dl class="iconstyle">
-					<dt><img src="../assets/home_icon7@2x.png" /></dt>
+					<dt><img src="../assets/img/home_icon7@2x.png" /></dt>
 					<dd>验车网点</dd>
 				</dl>
 				<dl class="iconstyle" @click="ycgz">
-					<dt><img src="../assets/home_icon8@2x.png" /></dt>
+					<dt><img src="../assets/img/home_icon8@2x.png" /></dt>
 					<dd>验车规则</dd>
 				</dl>
 			</div>
 			<div class="xqstyle">
-				<img src="../assets/home.jpg" style="width: 100%;" />
+				<img src="../assets/img/home.jpg" style="width: 100%;" />
 				<a href="annualreviewseal.html">
 					<div style="top: 74px;" class="xqstyle1">
 					</div>
@@ -81,47 +81,47 @@
 		</section>
 		<footer>
 			<dl class="footericon">
-				<dt><img src="../assets/btn_home_pre@2x.png" /></dt>
+				<dt><img src="../assets/img/btn_home_pre@2x.png" /></dt>
 				<dd>首页</dd>
 			</dl>
 			<dl class="footericon">
-				<dt><img src="../assets/btn_car@2x.png" /></dt>
+				<dt><img src="../assets/img/btn_car@2x.png" /></dt>
 				<dd>车辆</dd>
 			</dl>
 			<dl class="footericon">
-				<dt><img src="../assets/btn_coupons@2x.png" /></dt>
+				<dt><img src="../assets/img/btn_coupons@2x.png" /></dt>
 				<dd>优惠</dd>
 			</dl>
 			<dl class="footericon" @click="mymessage">
-				<dt><img src="../assets/btn_my@2x.png" /></dt>
+				<dt><img src="../assets/img/btn_my@2x.png" /></dt>
 				<dd>我的</dd>
 			</dl>
 		</footer>
 		<div id="mymodal" v-show="modalshow" v-cloak>
 			<div id="modalcontent">
-				<img src="../assets/ty@2x.png" class="bkimg">
+				<img src="../assets/img/ty@2x.png" class="bkimg">
 				<label class="bkclose" @click="modalclose">×</label>
-				<img src="../assets/my_img_man@2x.png" class="accountimg">
+				<img src="../assets/img/my_img_man@2x.png" class="accountimg">
 				<label class="bkphone">{{phone}}</label>
 				<table>
 					<tr @click="mycar">
-						<td><img src="../assets/my_icon_car@2x.png"></td>
+						<td><img src="../assets/img/my_icon_car@2x.png"></td>
 						<td>我的车辆</td>
 					</tr>
 					<tr>
-						<td><img src="../assets/my_icon_order@2x.png"></td>
+						<td><img src="../assets/img/my_icon_order@2x.png"></td>
 						<td>我的订单</td>
 					</tr>
 					<tr>
-						<td><img src="../assets/my_icon_coupons@2x.png"></td>
+						<td><img src="../assets/img/my_icon_coupons@2x.png"></td>
 						<td>优惠券</td>
 					</tr>
 					<tr>
-						<td><img src="../assets/my_icon_service@2x.png"></td>
+						<td><img src="../assets/img/my_icon_service@2x.png"></td>
 						<td>我的客服</td>
 					</tr>
 					<tr>
-						<td><img src="../assets/my_icon_setting@2x.png"></td>
+						<td><img src="../assets/img/my_icon_setting@2x.png"></td>
 						<td>设置</td>
 					</tr>
 				</table>
@@ -129,21 +129,19 @@
 		</div>
 	</div>
 </template>
-
 <script>
-	import { serveraddress, yyctoken, yycrefreshtoken, lstoken, lsrefreshtoken, acphone, guid } from '../util/public'
-	import 'swiper/dist/css/swiper.min.css';
+	import { serveraddress, guid } from '../util/public'
+	//	console.log(yyctoken);
+	import 'swiper/dist/css/swiper.min.css';  
 	import Swiper from 'swiper'
 	export default {
-		name: 'index',
 		data() {
 			return {
 				modalshow: false,
-				phone: acphone
+				phone:'',
+				yyctoken: '',
+				yycrefreshtoken:''
 			}
-		},
-		created() {
-			this.refreshtoken();
 		},
 		mounted() {
 			var myswiper = new Swiper('.swiper-container', {
@@ -163,8 +161,11 @@
 					swiper.startAutoplay();　　
 					swiper.reLoop();
 				}
-			});
-
+			})
+//			this.refreshtoken();
+			this.phone = localStorage.getItem("acphone");
+			this.yyctoken = localStorage.getItem("yyctoken");
+			this.yycrefreshtoken = localStorage.getItem("yycrefreshtoken");
 		},
 		methods: {
 			mycar() { //我的车库跳转
@@ -178,11 +179,11 @@
 			},
 			ajyc() { //安检验车跳转
 				var that = this;
-				if(yyctoken == null) {
+				if(that.yyctoken == null) {
 					that.$router.push({
 						path: './login'
 					});
-				} else if(yyctoken != null) {
+				} else if(that.yyctoken != null) {
 					that.$router.push({
 						path: './mygarage',
 						query: {
@@ -192,18 +193,23 @@
 				}
 			},
 			nsgj() { //年审盖章跳转
-				if(yyctoken == null) {
+				var that = this;
+				if(that.yyctoken == null) {
 					this.$router.push({
 						path: './login'
 					});
 				} else {
 					this.$router.push({
-						path: './mygarage'
+						path: './mygarage',
+						query: {
+							id: 2
+						}
 					});
 				}
 			},
 			wzcx() { //违章查询跳转
-				if(yyctoken == null) {
+				var that = this;
+				if(that.yyctoken == null) {
 					this.$router.push({
 						path: './login'
 					});
@@ -221,7 +227,8 @@
 				window.location.href = "https://mybank.icbc.com.cn/icbc/conformity/forwardnr.jsp?f2z_Area_code=1001&url=/online/ctk_login.jsp?flag=pay";
 			},
 			mymessage() { //点击我的弹出侧滑模态框
-				if(yyctoken == null) {
+				var that = this;
+				if(that.yyctoken == null) {
 					this.$router.push({
 						path: './login'
 					});
@@ -236,8 +243,9 @@
 				$('html,body').removeClass('ovfHiden');
 				that.modalshow = false;
 			},
-			refreshtoken() {
-				if(yyctoken == null) {
+			refreshtoken(){
+				var that =this;
+				if(that.yyctoken == null) {
 					$.ajax({
 						type: "POST",
 						contentType: 'application/x-www-form-urlencoded',
@@ -253,6 +261,34 @@
 						success: function(data) {
 							localStorage.setItem("lstoken", data.access_token);
 							localStorage.setItem("lsrefreshtoken", data.refresh_token);
+						}
+					});
+				} else {
+					$.ajax({
+						type: "POST",
+						contentType: 'application/json;charset=UTF-8',
+						url: "" + serveraddress + "/api/v1/account/refresh?refreshToken=" + that.yycrefreshtoken,
+						headers: {
+							'client': 'CLIENT',
+							'Authorization': 'Bearer ' + that.yyctoken
+						},
+						success: function(data) {
+							if(data.code == 200) {
+								localStorage.setItem("yyctoken", data.data.access_token);
+								localStorage.setItem("yycrefreshtoken", data.data.refresh_token);
+							} else {
+								localStorage.removeItem("yyctoken");
+								localStorage.removeItem("yycrefreshtoken");
+							}
+						},
+						error: function(data) {
+							if(data.status == 401) {
+								localStorage.removeItem("yyctoken");
+								localStorage.removeItem("yycrefreshtoken");
+								this.$router.push({
+									path: './login'
+								});
+							}
 						}
 					});
 				}
@@ -293,24 +329,15 @@
 	}
 </script>
 <style>
-	* {
-		margin: 0;
-		padding: 0;
-		font-family: "微软雅黑";
-	}
-	
-	body {
-		background: #F7F7FA;
-	}
-	
 	.header1 {
 		width: 100%;
 		height: 100px;
 		text-align: center;
 		background: #FF923C;
-		position: relative;
+		position: fixed;
+		top:0;
+		z-index: 100;
 	}
-	
 	header img {
 		/*width: 117px;
 				height: 30px;*/
@@ -336,6 +363,7 @@
 	
 	.section1 {
 		width: 100%;
+		margin-top: 100px;
 		margin-bottom: 120px;
 	}
 	
@@ -358,7 +386,7 @@
 	#contenticon {
 		width: 100%;
 		height: 300px;
-		margin: 0 auto;
+		
 		background: #FFFFFF;
 	}
 	
@@ -372,6 +400,7 @@
 		font-size: 22px;
 		text-align: center;
 	}
+	
 	.xqstyle {
 		position: relative;
 		margin-top: 24px;

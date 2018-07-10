@@ -1,14 +1,14 @@
-export const serveraddress = "http://Development.yiyanche.com:8802";
+export var serveraddress = "http://Development.yiyanche.com:8802";
 
-export const yyctoken=localStorage.getItem("yyctoken");
+export var yyctoken=localStorage.getItem("yyctoken");
 
-export const yycrefreshtoken=localStorage.getItem("yycrefreshtoken");
+export var yycrefreshtoken=localStorage.getItem("yycrefreshtoken");
 
-export const lstoken = localStorage.getItem("lstoken");
+export var lstoken = localStorage.getItem("lstoken");
 
-export const lsrefreshtoken = localStorage.getItem("lsrefreshtoken");
+export var lsrefreshtoken = localStorage.getItem("lsrefreshtoken");
 
-export const acphone = localStorage.getItem("acphone");
+export var acphone = localStorage.getItem("acphone");
 
 export function guid(){ //随机存储名
 	function S4() {

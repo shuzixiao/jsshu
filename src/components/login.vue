@@ -1,7 +1,7 @@
 <template>
 	<section id="app">
 		<div id="logo">
-			<img src="../assets/logo@2x.png" />
+			<img src="../assets/img/logo@2x.png" />
 		</div>
 		<div id="loginbox">
 			<div id="phonebox">
@@ -24,8 +24,8 @@
 </template>
 <script>
 	import { serveraddress } from '../util/public'
+	import { Toast } from 'mint-ui';
 	export default {
-		name: 'HelloWorld',
 		data() {
 			return {
 				phonedisabled: false,
@@ -42,12 +42,16 @@
 		methods: {
 			hqyzm() { //获取验证码
 				var that = this;
+				if(that.phone == "") {
+					Toast('手机号不能为空');
+					return;
+				}
 				$.get("" + serveraddress + "/api/v1/sms/authCode/" + that.phone + "/4000", function(result) {
 					if(result.code == 200) {
-						alert("发送成功");
+						Toast('发送成功');
 						that.yzmCountdown();
 					} else {
-						alert(result.message);
+						Toast(result.message);
 					}
 				})
 			},
@@ -56,7 +60,7 @@
 				if(this.isOvertime) {
 					return false;
 				}
-				var sendTimer = setInterval(function() {
+				var sendTimer = setInterval(function(){
 					that.isOvertime = true;
 					that.phonedisabled = true;
 					that.thecolor = "#D9D9D9";
@@ -94,19 +98,25 @@
 						if(data.code == 200) {
 							localStorage.setItem("yyctoken", data.data.access_token);
 							localStorage.setItem("yycrefreshtoken", data.data.refresh_token);
-							localStorage.setItem("acphone", data.data.phone);
+							localStorage.setItem("acphone", that.phone);
 							that.$router.push({
 								path: './'
 							});
 							return;
 						} else {
-							alert(data.message);
+							Toast(data.message);
 							return;
 						}
 					},
 					error: function(data) {
-						alert(data.message);
-						return;
+						if(data.status == 500) {
+							Toast("连接超时,请稍后重试");
+							return;
+						} else {
+							Toast(data.message);
+							return;
+						}
+
 					}
 				})
 			}
